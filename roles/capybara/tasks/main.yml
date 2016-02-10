@@ -1,0 +1,28 @@
+---
+- name: common | brew update (1)
+  homebrew: update_homebrew=yes
+
+- name: common | brew install packages
+  with_items: packages
+  homebrew: name={{ item }} state=upgraded
+
+- name: update gem
+  command: gem update --system
+
+- name: force link qt5 (capybara dependency)
+  command: brew link --force qt5
+
+- name: uninstall gems
+  with_items: gems
+  gem: name={{ item }} state=absent
+
+- gem: name=nokogiri state=absent
+
+- name: gem install nokogiri (ridiculous line is necessary on osx)
+  gem: name=nokogiri state=present build_flags="--use-system-libraries  -- --with-xml2-include=/usr/local/Cellar/libxml2/$(ls -t /usr/local/Cellar/libxml2/ | head -1)/include/libxml2/ --with-xml2-lib=/usr/local/Cellar/libxml2/$(ls -t /usr/local/Cellar/libxml2/ | head -1)/lib/ --with-xslt-lib=/usr/local/lib --with-xslt-include=/usr/local/include"
+  environment:
+    ARCHFLAGS: "-arch x86_64"
+
+- name: install gems
+  with_items: gems
+  gem: name={{ item }} state=present

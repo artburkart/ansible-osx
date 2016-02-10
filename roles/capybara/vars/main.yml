@@ -1,0 +1,18 @@
+---
+packages:
+  - libxml2
+  - libxslt
+  - libiconv
+  - qt5
+  - chromedriver
+  - ruby
+
+gems:
+  - cucumber
+  - selenium-webdriver
+  - chromedriver-helper
+  - headless
+  - mime-types
+  - xpath
+  - capybara-webkit
+  - capybara

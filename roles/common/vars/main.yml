@@ -1,0 +1,21 @@
+---
+taps:
+  - homebrew/dupes
+  - homebrew/versions
+
+packages:
+  - ansible
+  - git
+  - gnu-sed
+  - jq
+  - macvim
+  - the_silver_searcher
+  - vim
+  - watchman
+  - wget
+
+casks:
+  # - alfred
+  - caffeine
+  - charles
+  - iterm2
