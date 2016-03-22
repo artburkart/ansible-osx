@@ -15,7 +15,6 @@ packages:
   - wget
 
 casks:
-  # - alfred
   - caffeine
   - charles
   - iterm2
