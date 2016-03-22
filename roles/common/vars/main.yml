@@ -15,6 +15,7 @@ packages:
   - wget
 
 casks:
+  - shiftit
   - caffeine
   - charles
   - iterm2
